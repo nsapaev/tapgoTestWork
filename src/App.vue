@@ -8,7 +8,7 @@ const loadTasks = async () => {
   if (saved) {
     tasks.value = JSON.parse(saved)
   } else {
-    const response = await fetch('/tasks.json')
+    const response = await fetch(`${import.meta.env.BASE_URL}tasks.json`)
     const data = await response.json()
     tasks.value = data
     localStorage.setItem('tasks', JSON.stringify(data))
